@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SIGNUP_URL } from "../api/Api";
 
 function SignUpPage() {
@@ -42,6 +42,7 @@ function SignUpPage() {
 
   return (
     <div>
+      <Link to="/login">Oops, I want to login instead.</Link>
       <h1>Sign Up</h1>
       <form>
         <input

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LOGIN_URL } from "../api/Api";
 
 function LoginPage() {
@@ -27,16 +27,17 @@ function LoginPage() {
       .then(async (data) => {
         console.log(data);
         await localStorage.setItem("token", data.accessToken);
-        setError(false);
+        setError(true);
         navigate("/");
       })
       .catch((error) => {
-        setError(false);
+        setError(true);
       });
   }
 
   return (
     <div>
+      <Link to="/signup">Oops, I want to sign up instead.</Link>
       <h1>Log In</h1>
       <form>
         <input

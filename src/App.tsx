@@ -5,10 +5,9 @@ import "./App.css";
 
 function App() {
   const [content, setContent] = useState();
-
-  // const token =
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjNlOTI0OTUyMjM5ZGQ1YzA5MjkyOCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4MDA4MTY1NywiZXhwIjoxNjgwMDg1MjU3fQ.TtrpPsyS162TLfW_OcMRaaK_aP0vwqaLZd8NN9V_QI0";
   const navigate = useNavigate();
+
+  console.log("hello");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
