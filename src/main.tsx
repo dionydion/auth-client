@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       element: <AuthPage />,
     },
   ],
-  { basename: process.env.PUBLIC_URL }
+  { basename: "/auth-client/" }
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
