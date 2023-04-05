@@ -45,23 +45,28 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
-
-      - name: Stop and remove existing container
-        run: |
+          script: |
           sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true && sudo docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true
-        # run: |
-        # IMAGE_NAME=<dionydion/auth-client:latest>
-        # CONTAINER_IDS=$(sudo docker ps -q -f ancestor=$IMAGE_NAME)
-        # if [ -n "$CONTAINER_IDS" ]; then
-        #   sudo docker stop $CONTAINER_IDS
-        #   sudo docker rm $CONTAINER_IDS
-        # fi
-        # #
 
-      - name: Pull updated Docker image
-        run: |
           sudo docker pull dionydion/auth-client:latest
+          sudo docker run -p 3000:3000 dionydion/auth-client:latest
 
-      - name: Start new container
-        run: |
-          sudo docker run --name auth-client -d -p 3000:3000 dionydion/auth-client:latest
+      # - name: Stop and remove existing container
+      #   run: |
+      #     sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true && sudo docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true
+      #   # run: |
+      #   # IMAGE_NAME=<dionydion/auth-client:latest>
+      #   # CONTAINER_IDS=$(sudo docker ps -q -f ancestor=$IMAGE_NAME)
+      #   # if [ -n "$CONTAINER_IDS" ]; then
+      #   #   sudo docker stop $CONTAINER_IDS
+      #   #   sudo docker rm $CONTAINER_IDS
+      #   # fi
+      #   # #
+
+      # - name: Pull updated Docker image
+      #   run: |
+      #     sudo docker pull dionydion/auth-client:latest
+
+      # - name: Start new container
+      #   run: |
+      #     sudo docker run -p 3000:3000 dionydion/auth-client:latest
