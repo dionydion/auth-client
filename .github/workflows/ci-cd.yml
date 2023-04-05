@@ -57,4 +57,4 @@ jobs:
 
       - name: Start new container
         run: |
-          sudo docker run -d -p 3000:3000 --name dionydion/auth-client:latest
+          sudo docker run -d -p 3000:3000 dionydion/auth-client:latest
