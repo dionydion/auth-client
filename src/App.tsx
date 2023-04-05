@@ -8,6 +8,7 @@ function App() {
   const navigate = useNavigate();
 
   console.log("hello");
+  console.log("ci/cd tool works");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
