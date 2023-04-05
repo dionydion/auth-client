@@ -47,5 +47,5 @@ jobs:
           port: 22
           script: |
             # Insert commands to pull and run Docker image here
-            # docker pull dionydion/auth-client:latest
-            # docker run -d -p 3000:3000 dionydion/auth-client:latest
+            docker pull dionydion/auth-client:latest
+            docker run -d -p 3000:3000 dionydion/auth-client:latest
