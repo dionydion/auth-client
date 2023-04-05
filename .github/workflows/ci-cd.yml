@@ -46,10 +46,9 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
           script: |
-          sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true && sudo docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true
-
-          sudo docker pull dionydion/auth-client:latest
-          sudo docker run -p 3000:3000 dionydion/auth-client:latest
+            sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true && sudo docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") || true
+            sudo docker pull dionydion/auth-client:latest
+            sudo docker run -p 3000:3000 dionydion/auth-client:latest
 
       # - name: Stop and remove existing container
       #   run: |
