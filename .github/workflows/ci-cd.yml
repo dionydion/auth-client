@@ -48,8 +48,7 @@ jobs:
 
       - name: Stop and remove existing container
         run: |
-          sudo docker stop $(sudo docker ps -aqf "ancestor=dionydion/auth-client:latest") || true
-          sudo docker rm $(sudo docker ps -aqf "ancestor=dionydion/auth-client:latest") || true
+          sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") && docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest")
 
       - name: Pull updated Docker image
         run: |
