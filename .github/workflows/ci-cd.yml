@@ -23,7 +23,7 @@ jobs:
         run: |
           # Insert commands to run tests here
           # For example, if you're using Node.js:
-          # npm run test
+          # npm run tes
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
