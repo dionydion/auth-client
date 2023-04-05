@@ -45,7 +45,16 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
-          script: |
-            # Insert commands to pull and run Docker image here
-            sudo docker pull dionydion/auth-client:latest
-            sudo docker run -d -p 3000:3000 dionydion/auth-client:latest
+
+      - name: Stop and remove existing container
+        run: |
+          sudo docker stop $(sudo docker ps -aqf "ancestor=dionydion/auth-client:latest") || true
+          sudo docker rm $(sudo docker ps -aqf "ancestor=dionydion/auth-client:latest") || true
+
+      - name: Pull updated Docker image
+        run: |
+          sudo docker pull dionydion/auth-client:latest
+
+      - name: Start new container
+        run: |
+          sudo docker run -d -p 3000:3000 --name dionydion/auth-client:latest
