@@ -47,16 +47,16 @@ jobs:
           port: 22
 
       - name: Stop and remove existing container
-        # run: |
-        #   sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") && docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest")
         run: |
-        IMAGE_NAME=<dionydion/auth-client:latest>
-        CONTAINER_IDS=$(sudo docker ps -q -f ancestor=$IMAGE_NAME)
-        if [ -n "$CONTAINER_IDS" ]; then
-          sudo docker stop $CONTAINER_IDS
-          sudo docker rm $CONTAINER_IDS
-        fi
-        #
+          sudo docker stop $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest") && docker rm $(sudo docker ps -a -q -f "ancestor=dionydion/auth-client:latest")
+        # run: |
+        # IMAGE_NAME=<dionydion/auth-client:latest>
+        # CONTAINER_IDS=$(sudo docker ps -q -f ancestor=$IMAGE_NAME)
+        # if [ -n "$CONTAINER_IDS" ]; then
+        #   sudo docker stop $CONTAINER_IDS
+        #   sudo docker rm $CONTAINER_IDS
+        # fi
+        # #
 
       - name: Pull updated Docker image
         run: |
